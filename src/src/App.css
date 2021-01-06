@@ -1,0 +1,16 @@
+body{
+  background: #000;
+  overflow-x: hidden;
+}
+.MuiDrawer-paper.MuiPaper-root{
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: #257ce173;
+}
+.MuiMenuItem-root{
+  color: #fff;
+  font-size: 12px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
