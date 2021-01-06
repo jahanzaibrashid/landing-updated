@@ -145,7 +145,6 @@ import {
         setState((prevState) => ({ ...prevState, drawerOpen: false }));
   
       return (
-          
             <Toolbar disableGutters>
               <Container maxWidth="lg">
                 <div>{femmecubatorLogo}</div>
@@ -203,7 +202,7 @@ import {
     const getMenuButtons = () => {
       return headersData.map(({ label, href }) => {
         return (
-          <Button
+          <Button 
             {...{
               key: label,
               color: "inherit",

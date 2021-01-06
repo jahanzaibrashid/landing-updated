@@ -10,6 +10,8 @@ import {
     Container, 
   } from "@material-ui/core";
   import MenuIcon from "@material-ui/icons/Menu";
+  import CloseIcon from '@material-ui/icons/Close';
+
   import React, { useState, useEffect } from "react";
   import LogoItem from '../assets/img/logo.png'
   
@@ -20,7 +22,7 @@ import {
     },
     {
       label: "REQUEST INVITATION",
-      href: "#",
+      href: "/#form",
     },
   ];
   
@@ -102,13 +104,15 @@ import {
         display: 'flex',
         justifyContent: 'space-between'
       }
-    
-      
-    }
+    },
+    closeMenuButton: {
+      marginRight: 'auto',
+      marginLeft: 0,
+  },
   }));
   
   function Header() {
-    const { header, logo, menuButton, toolbar, drawerContainer, slefcontac } = useStyles();
+    const { header, logo, menuButton, toolbar, drawerContainer, slefcontac,closeMenuButton } = useStyles();
   
     const [state, setState] = useState({
       mobileView: false,
@@ -133,7 +137,7 @@ import {
       return (
         <Toolbar className={toolbar}>
           {femmecubatorLogo}
-          <div>{getMenuButtons()}</div>
+          <div >{getMenuButtons()}</div>
         </Toolbar>
       );
     };
@@ -169,6 +173,9 @@ import {
                 
                 }}
             >
+              <IconButton onClick={handleDrawerClose} className={closeMenuButton}>
+                            <CloseIcon />
+              </IconButton>
                 <div className={drawerContainer}>{getDrawerChoices()}</div>
             </Drawer>
     
@@ -181,7 +188,7 @@ import {
     const getDrawerChoices = () => {
       return headersData.map(({ label, href }) => {
         return (
-          <Link
+          <Link href={href}
             {...{
             //   component: RouterLink,
               to: href,
@@ -203,7 +210,7 @@ import {
     const getMenuButtons = () => {
       return headersData.map(({ label, href }) => {
         return (
-          <Button
+          <Button href={href}
             {...{
               key: label,
               color: "inherit",

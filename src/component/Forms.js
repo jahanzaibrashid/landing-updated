@@ -32,7 +32,7 @@ export default function Forms(){
       });
     return(
         <Fragment>
-            <div className={classes.formsbg}>
+            <div className={classes.formsbg} id="form">
                 <Container maxWidth="lg">
                     <Grid container spacing={isMobile ? 0 : 7} direction="row" justify="center">
                         <Grid item md={6}>

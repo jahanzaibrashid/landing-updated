@@ -103,9 +103,9 @@ export default function Footer(){
                                      Community
                                 </Typography>
                                 <Grid container direction="row" alignItems="center" justify="flex-end" className={classes.socialu}>
-                                    <Link href="#" style={{marginLeft: 0}}><YouTubeIcon /> </Link>
-                                    <Link href="#"><TwitterIcon /> </Link>
-                                    <Link href="#"><InstagramIcon /> </Link>
+                                    <Link href="https://www.youtube.com/channel/UCBS5ZY7WbUBJXepQ8ReXyFw" style={{marginLeft: 0}}><YouTubeIcon /> </Link>
+                                    <Link href="https://twitter.com/minty_nft"><TwitterIcon /> </Link>
+                                    <Link href="https://www.instagram.com/minty_nft/"><InstagramIcon /> </Link>
                                 </Grid>
                             </Grid>
                     </Grid>

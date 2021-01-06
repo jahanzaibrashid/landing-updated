@@ -109,7 +109,7 @@ export default function Banner() {
                             <Typography variant="body1" variantMapping="p" align="center">
                             Minty is for culture shapers, connoisseurs and art owners. <span fontWeight={700}> We fuel the 
                             creation and appreciation of art that will define a generation. Art is
-                            powerful. </span> We harness technology to empower the people that power it. 
+                            powerful. </span> We harness technology to empower the people that power it.
                             </Typography>
                             <Hidden mdDown>
                                 <Link href="#" className={classes.mousen}>
