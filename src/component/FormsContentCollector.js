@@ -176,15 +176,28 @@ export default function FormsContent() {
   const [state, setState] = useState({
     collectorName: "",
     collectorEmail: "",
-  })
+  });
+  const [visibility, setVisibility] = useState("block");
   const classes = useStyles();
 
   const handleChange = (evt) => {
     const value = evt.target.value;
     setState({
-      ...state, [evt.target.name]:value
+      ...state, [evt.target.name]: value
     });
     // console.log(state);
+  }
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(state);
+    setState({
+      collectorName: "",
+      collectorEmail: ""
+    });
+
+    setTimeout(() => {
+      setVisibility("none")
+    }, 1000);
   }
   return (
     <Fragment>
@@ -195,20 +208,26 @@ export default function FormsContent() {
         <Divider light="false" variant="middle" className={classes.smalldivider}></Divider>
         <Typography variant="body1" align="center">
           Power Art’s Next Big Thing
-                </Typography>
-        <form className={classes.root} noValidate autoComplete="off">
-
-          <FormControl fullWidth>
-            <InputLabel htmlFor="collectorName">Name</InputLabel>
-            <Input id="collectorName" type="text" name="collectorName" value={state.collectorName} onChange={handleChange} />
-          </FormControl>
-          <FormControl fullWidth>
-            <InputLabel htmlFor="collectorEmail">E-mail</InputLabel>
-            <Input id="collectorEmail" type="email" name="collectorEmail" value={state.collectorEmail} onChange={handleChange} />
-          </FormControl>
-          <Button variant="outlined" color="secondary" className={classes.submitbtn}>
-            Submit
+          </Typography>
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => submitHandler(e)}>
+          <div style={{ display: visibility }}>
+            <FormControl fullWidth>
+              <InputLabel htmlFor="collectorName">Name</InputLabel>
+              <Input id="collectorName" type="text" name="collectorName" value={state.collectorName} onChange={handleChange} />
+            </FormControl>
+            <FormControl fullWidth>
+              <InputLabel htmlFor="collectorEmail">E-mail</InputLabel>
+              <Input id="collectorEmail" type="email" name="collectorEmail" value={state.collectorEmail} onChange={handleChange} />
+            </FormControl>
+            <Button variant="outlined" color="secondary" type="submit" className={classes.submitbtn}>
+              Submit
           </Button>
+          </div>
+          {visibility == "none" ?
+            <Typography variant="body1" align="center">
+             Thanks you Hamirul you have submitted one form....
+          </Typography> : null}
+
 
         </form>
 

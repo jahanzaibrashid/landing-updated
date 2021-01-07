@@ -195,7 +195,7 @@ export default function FormsContentArtist(){
                 Let us power your creativity
                 </Typography>
                 <form className={classes.root} noValidate autoComplete="off">
-                    
+                    <>
                     <FormControl fullWidth>
                         <InputLabel htmlFor="artistName">Name</InputLabel>
                         <Input id="artistName" type="text" name="artistName" value={state.artistName} onChange={handleChange}/>
@@ -204,6 +204,7 @@ export default function FormsContentArtist(){
                         <InputLabel htmlFor="artistEmail">E-mail</InputLabel>
                         <Input id="artistEmail" type="email" name="artistEmail" value={state.artistEmail} onChange={handleChange} />
                     </FormControl>
+                    </>
                     <Button variant="outlined" color="secondary" className={classes.submitbtn}>
                          Submit
                     </Button>
