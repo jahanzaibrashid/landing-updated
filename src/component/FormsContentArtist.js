@@ -8,7 +8,10 @@ import {
     makeStyles,
     Button
 }
+
 from '@material-ui/core';
+
+import axios from "axios";
 
 const useStyles = makeStyles({
     formMain:{
@@ -169,20 +172,51 @@ const useStyles = makeStyles({
 
 
 export default function FormsContentArtist(){
+
+
+  const [result, setResult] = useState(null);
   const [state, setState] = useState({
     artistName: "",
     artistEmail: "",
   });
-    const classes = useStyles();
+  const [visibility, setVisibility] = useState("block");
+  const classes = useStyles();
 
     const handleChange = (evt) => {
       const value = evt.target.value;
       setState({
         ...state, [evt.target.name]:value
       });
-      console.log(state);
-    }
 
+      // console.log(state);
+ }
+
+ const submitHandler = (e) => {
+
+      e.preventDefault();
+
+   console.log(state);
+
+   axios
+    .post('/mail',{state})
+    .then(response => {
+      // setResult(response.data);
+      setState({
+        artistName:"",
+        artistEmail:""
+      });
+    })
+    .catch(()=> {
+      // setResult({
+      //   success: false,
+      //   message:"something"
+      // })
+    });
+    
+      setTimeout(() => {
+        setVisibility("none")
+      },100);
+ }
 
     return(
         <Fragment>
@@ -194,8 +228,8 @@ export default function FormsContentArtist(){
                 <Typography variant="body1" align="center">
                 Let us power your creativity
                 </Typography>
-                <form className={classes.root} noValidate autoComplete="off">
-                    <>
+                <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => submitHandler(e)}>
+                    <div style={{display:visibility}}>
                     <FormControl fullWidth>
                         <InputLabel htmlFor="artistName">Name</InputLabel>
                         <Input id="artistName" type="text" name="artistName" value={state.artistName} onChange={handleChange}/>
@@ -204,10 +238,13 @@ export default function FormsContentArtist(){
                         <InputLabel htmlFor="artistEmail">E-mail</InputLabel>
                         <Input id="artistEmail" type="email" name="artistEmail" value={state.artistEmail} onChange={handleChange} />
                     </FormControl>
-                    </>
-                    <Button variant="outlined" color="secondary" className={classes.submitbtn}>
+                    <Button type="submit" variant="outlined" color="secondary" className={classes.submitbtn}>
                          Submit
                     </Button>
+                </div>
+                {visibility == "none" ?
+                <Typography variant="body1" align="center">Thank you
+                </Typography> : null}
                 </form>
                 <div className={classes.borderControlb}></div>
             </div>

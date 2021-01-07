@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, } from 'react';
 import {
   Typography,
   Divider,
@@ -9,6 +9,7 @@ import {
   Button
 }
   from '@material-ui/core';
+import axios from 'axios';
 
 const useStyles = makeStyles({
   formMain: {
@@ -173,6 +174,8 @@ const useStyles = makeStyles({
 
 
 export default function FormsContent() {
+
+  const [result, setResult] = useState(null);
   const [state, setState] = useState({
     collectorName: "",
     collectorEmail: "",
@@ -188,12 +191,26 @@ export default function FormsContent() {
     // console.log(state);
   }
   const submitHandler = (e) => {
-    e.preventDefault();
+
     console.log(state);
-    setState({
+
+   e.preventDefault();
+
+   axios
+    .post('/mail',{state})
+    .then(response => {
+      setResult(response.data);
+      setState({
       collectorName: "",
       collectorEmail: ""
     });
+})
+.catch(() => {
+  setResult({
+    success:false,
+    message:"something went wrong"
+  })
+});
 
     setTimeout(() => {
       setVisibility("none")
@@ -225,9 +242,8 @@ export default function FormsContent() {
           </div>
           {visibility == "none" ?
             <Typography variant="body1" align="center">
-             Thanks you Hamirul you have submitted one form....
+             Thanks you
           </Typography> : null}
-
 
         </form>
 
