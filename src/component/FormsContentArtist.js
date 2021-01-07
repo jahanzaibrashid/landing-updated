@@ -187,33 +187,29 @@ export default function FormsContentArtist() {
     setState({
       ...state, [evt.target.name]: value
     });
-
-    console.log(state);
   }
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    axios
-      .post('/mail', { state })
-      .then(response => {
-        // setResult(response.data);
+    if(state.first_name!=="" && state.email!==""){
+      axios.post('/mail/', state).then(response => {
+        console.log("afdsfdsf")
+        setResult(response.data);
         setState({
+          ...state,
           first_name: "",
           email: ""
         });
+        setVisibility("none");
       })
-      .catch((err) => {
-        console.log(err)
-        setResult({
-          success: false,
-          message:"something went wrong"
-        })
-      });
-
-    setTimeout(() => {
-      setVisibility("none")
-    }, 500);
+        .catch((err) => {
+          console.log(err)
+          setResult({
+            success: false,
+            message: "something went wrong"
+          })
+        });
+    }
   }
 
   return (
@@ -232,19 +228,18 @@ export default function FormsContentArtist() {
           <div style={{ display: visibility }}>
             <FormControl fullWidth>
               <InputLabel htmlFor="first_name">Name</InputLabel>
-              <Input id="first_name" type="text" name="first_name" value={state.first_name} onChange={handleChange} />
+              <Input required id="first_name" type="text" name="first_name" value={state.first_name} onChange={handleChange} />
             </FormControl>
             <FormControl fullWidth>
               <InputLabel htmlFor="email">E-mail</InputLabel>
-              <Input id="email" type="email" name="email" value={state.email} onChange={handleChange} />
+              <Input required id="email" type="email" name="email" value={state.email} onChange={handleChange} />
             </FormControl>
             <Button type="submit" variant="outlined" color="secondary" className={classes.submitbtn}>
               Submit
-                    </Button>
+              </Button>
           </div>
           {visibility == "none" ?
-            <Typography variant="body1" align="center">Thank you
-                </Typography> : null}
+            <Typography variant="body1" align="center">Thank you</Typography> : null}
         </form>
         <div className={classes.borderControlb}></div>
       </div>

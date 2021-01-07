@@ -184,38 +184,31 @@ export default function FormsContent() {
   const classes = useStyles();
 
   const handleChange = (evt) => {
-    
     const value = evt.target.value;
     setState({
       ...state, [evt.target.name]: value
     });
-    console.log(state);
   }
   const submitHandler = (e) => {
-
-   e.preventDefault();
-
-   axios
-    .post('/mail',{state})
-    .then(response => {
-      setResult(response.data);
-      setState({
-      first_name: "",
-      email: ""
-    });
-})
-.catch((err) => {
-  console.log(err);
-  setResult({
-    success:false,
-    message:"something went wrong"
-  });
-
-});
-
-    setTimeout(() => {
-      setVisibility("none")
-    }, 500);
+    e.preventDefault();
+    if(state.first_name!=="" && state.email!==""){
+      axios.post('/mail/', state).then(response => {
+        setResult(response.data);
+        setState({
+          ...state,
+          first_name: "",
+          email: ""
+        });
+        setVisibility("none");
+      })
+        .catch((err) => {
+          console.log(err);
+          setResult({
+            success: false,
+            message: "something went wrong"
+          });
+        });
+    }
   }
   return (
     <Fragment>
@@ -228,8 +221,8 @@ export default function FormsContent() {
           Power Art’s Next Big Thing
           </Typography>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => submitHandler(e)}>
-                <input type="hidden" name="collector" value="yes" />
-                <input type="hidden" name="source" value="patron page 7 JAN 2020" />
+          <input type="hidden" name="collector" value="yes" />
+          <input type="hidden" name="source" value="patron page 7 JAN 2020" />
           <div style={{ display: visibility }}>
             <FormControl fullWidth>
               <InputLabel htmlFor="first_name">Name</InputLabel>
@@ -245,7 +238,7 @@ export default function FormsContent() {
           </div>
           {visibility == "none" ?
             <Typography variant="body1" align="center">
-             Thanks you
+              Thank you
           </Typography> : null}
 
         </form>
