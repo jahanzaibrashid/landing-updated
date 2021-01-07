@@ -229,6 +229,8 @@ export default function FormsContentArtist(){
                 Let us power your creativity
                 </Typography>
                 <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => submitHandler(e)}>
+                <input type="hidden" name="artist" value="yes" />
+                <input type="hidden" name="source" value="artist page 7 JAN 2020" />
                     <div style={{display:visibility}}>
                     <FormControl fullWidth>
                         <InputLabel htmlFor="artistName">Name</InputLabel>

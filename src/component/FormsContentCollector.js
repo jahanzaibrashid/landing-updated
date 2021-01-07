@@ -227,6 +227,8 @@ export default function FormsContent() {
           Power Art’s Next Big Thing
           </Typography>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => submitHandler(e)}>
+                <input type="hidden" name="collector" value="yes" />
+                <input type="hidden" name="source" value="patron page 7 JAN 2020" />
           <div style={{ display: visibility }}>
             <FormControl fullWidth>
               <InputLabel htmlFor="collectorName">Name</InputLabel>
