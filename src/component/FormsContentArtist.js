@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment,useState } from 'react';
 import {
     Typography,
     Divider,
@@ -169,7 +169,21 @@ const useStyles = makeStyles({
 
 
 export default function FormsContentArtist(){
+  const [state, setState] = useState({
+    artistName: "",
+    artistEmail: "",
+  });
     const classes = useStyles();
+
+    const handleChange = (evt) => {
+      const value = evt.target.value;
+      setState({
+        ...state, [evt.target.name]:value
+      });
+      console.log(state);
+    }
+
+
     return(
         <Fragment>
             <div className={classes.formMain}>
@@ -183,12 +197,12 @@ export default function FormsContentArtist(){
                 <form className={classes.root} noValidate autoComplete="off">
                     
                     <FormControl fullWidth>
-                        <InputLabel htmlFor="collector-name">Name</InputLabel>
-                        <Input id="collector-name"  type="text" />
+                        <InputLabel htmlFor="artistName">Name</InputLabel>
+                        <Input id="artistName" type="text" name="artistName" value={state.artistName} onChange={handleChange}/>
                     </FormControl>
                     <FormControl fullWidth>
-                        <InputLabel htmlFor="collector-email">E-mail</InputLabel>
-                        <Input id="collector-email" type="email" />
+                        <InputLabel htmlFor="artistEmail">E-mail</InputLabel>
+                        <Input id="artistEmail" type="email" name="artistEmail" value={state.artistEmail} onChange={handleChange} />
                     </FormControl>
                     <Button variant="outlined" color="secondary" className={classes.submitbtn}>
                          Submit
