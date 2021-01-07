@@ -179,6 +179,9 @@ export default function FormsContent() {
   const [state, setState] = useState({
     first_name: "",
     email: "",
+    collector:"collector",
+    source:"source"
+
   });
   const [visibility, setVisibility] = useState("block");
   const classes = useStyles();
@@ -188,11 +191,12 @@ export default function FormsContent() {
     setState({
       ...state, [evt.target.name]: value
     });
+    console.log(state)
   }
   const submitHandler = (e) => {
     e.preventDefault();
     if(state.first_name!=="" && state.email!==""){
-      axios.post('/mail/', state).then(response => {
+      axios.post('/mail-json/', state).then(response => {
         setResult(response.data);
         setState({
           ...state,
@@ -221,8 +225,8 @@ export default function FormsContent() {
           Power Art’s Next Big Thing
           </Typography>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => submitHandler(e)}>
-          <input type="hidden" name="collector" value="yes" />
-          <input type="hidden" name="source" value="patron page 7 JAN 2020" />
+          <input type="hidden" name={state.collector} value="yes" />
+          <input type="hidden" name={state.source} value="patron page 7 JAN 2020" />
           <div style={{ display: visibility }}>
             <FormControl fullWidth>
               <InputLabel htmlFor="first_name">Name</InputLabel>

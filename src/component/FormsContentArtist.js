@@ -178,6 +178,8 @@ export default function FormsContentArtist() {
   const [state, setState] = useState({
     first_name: "",
     email: "",
+    artist:"artist",
+    source:"source"
   });
   const [visibility, setVisibility] = useState("block");
   const classes = useStyles();
@@ -192,8 +194,7 @@ export default function FormsContentArtist() {
   const submitHandler = (e) => {
     e.preventDefault();
     if(state.first_name!=="" && state.email!==""){
-      axios.post('/mail/', state).then(response => {
-        console.log("afdsfdsf")
+      axios.post('/mail-json/', state).then(response => {
         setResult(response.data);
         setState({
           ...state,
@@ -223,8 +224,8 @@ export default function FormsContentArtist() {
           Let us power your creativity
                 </Typography>
         <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => submitHandler(e)}>
-          <input type="hidden" name="artist" value="yes" />
-          <input type="hidden" name="source" value="artist page 7 JAN 2020" />
+          <input type="hidden" name={state.artist} value="yes" />
+          <input type="hidden" name={state.source} value="artist page 7 JAN 2020" />
           <div style={{ display: visibility }}>
             <FormControl fullWidth>
               <InputLabel htmlFor="first_name">Name</InputLabel>
