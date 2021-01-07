@@ -22,7 +22,7 @@ import {
     },
     {
       label: "REQUEST INVITATION",
-      href: "https://jahanzaibrashid.github.io/landing-updated/#form",
+      href: "/#form",
     },
   ];
   

@@ -177,22 +177,21 @@ export default function FormsContent() {
 
   const [result, setResult] = useState(null);
   const [state, setState] = useState({
-    collectorName: "",
-    collectorEmail: "",
+    first_name: "",
+    email: "",
   });
   const [visibility, setVisibility] = useState("block");
   const classes = useStyles();
 
   const handleChange = (evt) => {
+    
     const value = evt.target.value;
     setState({
       ...state, [evt.target.name]: value
     });
-    // console.log(state);
+    console.log(state);
   }
   const submitHandler = (e) => {
-
-    console.log(state);
 
    e.preventDefault();
 
@@ -201,20 +200,22 @@ export default function FormsContent() {
     .then(response => {
       setResult(response.data);
       setState({
-      collectorName: "",
-      collectorEmail: ""
+      first_name: "",
+      email: ""
     });
 })
-.catch(() => {
+.catch((err) => {
+  console.log(err);
   setResult({
     success:false,
     message:"something went wrong"
-  })
+  });
+
 });
 
     setTimeout(() => {
       setVisibility("none")
-    }, 1000);
+    }, 500);
   }
   return (
     <Fragment>
@@ -231,12 +232,12 @@ export default function FormsContent() {
                 <input type="hidden" name="source" value="patron page 7 JAN 2020" />
           <div style={{ display: visibility }}>
             <FormControl fullWidth>
-              <InputLabel htmlFor="collectorName">Name</InputLabel>
-              <Input id="collectorName" type="text" name="collectorName" value={state.collectorName} onChange={handleChange} />
+              <InputLabel htmlFor="first_name">Name</InputLabel>
+              <Input id="first_name" type="text" name="first_name" value={state.first_name} onChange={handleChange} />
             </FormControl>
             <FormControl fullWidth>
-              <InputLabel htmlFor="collectorEmail">E-mail</InputLabel>
-              <Input id="collectorEmail" type="email" name="collectorEmail" value={state.collectorEmail} onChange={handleChange} />
+              <InputLabel htmlFor="email">E-mail</InputLabel>
+              <Input id="email" type="email" name="email" value={state.email} onChange={handleChange} />
             </FormControl>
             <Button variant="outlined" color="secondary" type="submit" className={classes.submitbtn}>
               Submit
