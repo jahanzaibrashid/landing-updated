@@ -24,16 +24,16 @@ const userStyles = makeStyles({
 const middleContent = {
     content: [
         {title: "Patronage and marketplace",
-        subtitle: "Artists find patrons to fund and bring to life new ideas, connect with passionate collectors and sell your finished works.",
-        paragrapth: "Patrons, artists you love to create something new and wonderful, access exclusive perks and follow progress of your favourite artists."
+        subtitle: "Artists find patrons to fund and bring to life new ideas, connect with passionate collectors and sell your finished work.",
+        paragrapth: "Patrons empower artists you love and commission them to create something new and wonderful. Access exclusive perks and follow progress of your favourite artists."
          },
          {title: "Visualise best in-class art",
-         subtitle: "Browse and discover",
-         paragrapth: "curated creations and artists that move the four corners of the world. "
+         subtitle: "Browse and discover new NFT art pieces.",
+         paragrapth: "Explore curated creations and artists that move the four corners of the world."
           },
           {title: "Trade art digitally",
-          subtitle: "Benefit from the rising value of the art you create by receiving royalties every time one of your artworks is sold. ",
-          paragrapth: "Access our worldwide network of patrons and collectors to grow and extend your audience.  "
+          subtitle: "Benefit from the rising value of the art you create by receiving royalties every time a token of your artwork is sold.",
+          paragrapth: "Access our worldwide network of patrons and collectors to grow and extend your audience."
            },
     ]
 }

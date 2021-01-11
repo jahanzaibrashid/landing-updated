@@ -102,7 +102,7 @@ export default function Banner() {
                         <img src={Envopleimage} alt="envolpe"/>
                             <Typography variant="h1" align="center" className={classes.heading} >
                                 Powered creativity <br /> 
-                                <span className={classes.themeColor}>Patronage Recoined. 
+                                <span className={classes.themeColor}>Patronage Recoined 
                                 </span> 
                             </Typography>
                             <Divider light="false" variant="middle" className={classes.smalldivider}></Divider>

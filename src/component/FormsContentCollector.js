@@ -109,7 +109,7 @@ const useStyles = makeStyles({
   },
   submitbtn: {
     borderColor: '#2274d3',
-    color: '#2274d3',
+    // color: '#2274d3',
     borderRadius: 0,
     position: 'absolute',
     bottom: '-25px',
@@ -120,9 +120,11 @@ const useStyles = makeStyles({
     fontWeight: 600,
     fontSize: '16px',
     letterSpacing: '3px',
+    backgroundColor: '#2274d3',
+    color: '#fff',
     '@media (max-width: 600px)': {
-      backgroundColor: '#2274d3',
-      color: '#fff',
+      // backgroundColor: '#2274d3',
+      // color: '#fff',
 
     },
     '& :before': {
@@ -133,12 +135,12 @@ const useStyles = makeStyles({
 
     },
     '&.MuiButton-outlinedSecondary:hover': {
-      color: '#2274d3',
+      // color: '#2274d3',
       borderColor: '#2274d3',
+      backgroundColor: '#2274d3',
       '@media (max-width: 600px)': {
-        backgroundColor: '#2274d3',
-        color: '#fff',
-
+        // backgroundColor: '#2274d3',
+        // color: '#fff',
       },
     }
   },
@@ -152,6 +154,9 @@ const useStyles = makeStyles({
       left: 0,
       bottom: 0,
       height: '2.5px',
+      '@media(min-width: 961px) and (max-width: 1100px)':{
+        width: '36%',
+      },
       '@media (max-width: 600px)': {
         display: 'none'
       }
@@ -164,6 +169,9 @@ const useStyles = makeStyles({
       right: 0,
       bottom: 0,
       height: '2.5px',
+      '@media(min-width: 961px) and (max-width: 1100px)':{
+        width: '36%',
+      },
       '@media (max-width: 600px)': {
         display: 'none'
       }
