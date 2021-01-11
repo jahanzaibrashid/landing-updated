@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/landing-updated/static/css/main.52483184.chunk.css",
-    "main.js": "/landing-updated/static/js/main.8d296786.chunk.js",
-    "main.js.map": "/landing-updated/static/js/main.8d296786.chunk.js.map",
-    "runtime-main.js": "/landing-updated/static/js/runtime-main.efc58cb3.js",
-    "runtime-main.js.map": "/landing-updated/static/js/runtime-main.efc58cb3.js.map",
-    "static/js/2.d6e081df.chunk.js": "/landing-updated/static/js/2.d6e081df.chunk.js",
-    "static/js/2.d6e081df.chunk.js.map": "/landing-updated/static/js/2.d6e081df.chunk.js.map",
-    "static/js/3.10301b70.chunk.js": "/landing-updated/static/js/3.10301b70.chunk.js",
-    "static/js/3.10301b70.chunk.js.map": "/landing-updated/static/js/3.10301b70.chunk.js.map",
+    "main.js": "/landing-updated/static/js/main.6a53eb2e.chunk.js",
+    "main.js.map": "/landing-updated/static/js/main.6a53eb2e.chunk.js.map",
+    "runtime-main.js": "/landing-updated/static/js/runtime-main.73afe0fe.js",
+    "runtime-main.js.map": "/landing-updated/static/js/runtime-main.73afe0fe.js.map",
+    "static/js/2.c5bb3477.chunk.js": "/landing-updated/static/js/2.c5bb3477.chunk.js",
+    "static/js/2.c5bb3477.chunk.js.map": "/landing-updated/static/js/2.c5bb3477.chunk.js.map",
+    "static/js/3.f682a332.chunk.js": "/landing-updated/static/js/3.f682a332.chunk.js",
+    "static/js/3.f682a332.chunk.js.map": "/landing-updated/static/js/3.f682a332.chunk.js.map",
     "index.html": "/landing-updated/index.html",
     "static/css/main.52483184.chunk.css.map": "/landing-updated/static/css/main.52483184.chunk.css.map",
-    "static/js/2.d6e081df.chunk.js.LICENSE.txt": "/landing-updated/static/js/2.d6e081df.chunk.js.LICENSE.txt",
+    "static/js/2.c5bb3477.chunk.js.LICENSE.txt": "/landing-updated/static/js/2.c5bb3477.chunk.js.LICENSE.txt",
     "static/media/banner.f20450e6.jpg": "/landing-updated/static/media/banner.f20450e6.jpg",
     "static/media/footerlogo.814cdac0.png": "/landing-updated/static/media/footerlogo.814cdac0.png",
     "static/media/secondbanner.ac32e3dc.png": "/landing-updated/static/media/secondbanner.ac32e3dc.png",
     "static/media/thirdbanner.371aa4c2.png": "/landing-updated/static/media/thirdbanner.371aa4c2.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.efc58cb3.js",
-    "static/js/2.d6e081df.chunk.js",
+    "static/js/runtime-main.73afe0fe.js",
+    "static/js/2.c5bb3477.chunk.js",
     "static/css/main.52483184.chunk.css",
-    "static/js/main.8d296786.chunk.js"
+    "static/js/main.6a53eb2e.chunk.js"
   ]
 }
