@@ -14,17 +14,7 @@ import {
 
   import React, { useState, useEffect } from "react";
   import LogoItem from '../assets/img/logo.png'
-  
-  const headersData = [
-    {
-      label: "HOME",
-      href: "#",
-    },
-    {
-      label: "REQUEST INVITATION",
-      href: "/#form",
-    },
-  ];
+  import Modal from './common/Modal';
   
   const useStyles = makeStyles(() => ({
     header: {
@@ -51,9 +41,10 @@ import {
       fontFamily: 'Montserrat, sans-serif',
       fontWeight: 700,
       fontSize: "12px",
-      marginLeft: "25px",
+      marginLeft: "10px",
       letterSpacing: '4px',
       position: 'relative',
+      // textTransform:"none"
       
       '&:last-of-type':{
 
@@ -61,15 +52,15 @@ import {
           display: 'none',
         }
       },
-      '&::after':{
-        content: '""',
-        width: '3px',
-        height: '3px',
-        backgroundColor: '#fff',
-        borderRadius: '50%',
-        position: 'absolute',
-        right: '-11px',
-      },
+      // '&::after':{
+      //   content: '""',
+      //   width: '3px',
+      //   height: '3px',
+      //   backgroundColor: '#fff',
+      //   borderRadius: '50%',
+      //   position: 'absolute',
+      //   right: '-11px',
+      // },
       '@media (min-width: 960px)': {
         borderBottom: '3px solid transparent',
         borderRadius: 0,
@@ -113,11 +104,44 @@ import {
   
   function Header() {
     const { header, logo, menuButton, toolbar, drawerContainer, slefcontac,closeMenuButton } = useStyles();
-  
+    const [open, setOpen] = useState(false);
     const [state, setState] = useState({
       mobileView: false,
       drawerOpen: false,
     });
+ 
+  
+    const headersData = [
+      {
+        label: "HOME",
+        href: "#",
+        
+      },
+      {
+        label: "REQUEST INVITATION",
+        href: "/#form",
+      },
+      {
+        label: "Buy Minty",
+        href: "/#",
+        onclick:()=>{setOpen(true)}
+      },
+      {
+        label: "Stake Minty",
+        href: "/#",
+      },
+    ];
+
+    
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleClickOpen = () => {
+      setOpen(true);
+  };
+
+  
+    
   
     const { mobileView, drawerOpen } = state;
   
@@ -193,11 +217,11 @@ import {
             //   component: RouterLink,
               // to: href,
               color: "inherit",
-              style: { textDecoration: "none" },
+              style: { textDecoration: "none", },
               key: label,
             }}
           >
-            <MenuItem>{label}</MenuItem>
+            <MenuItem style={{textTransform:"uppercase"}}>{label}</MenuItem>
           </Link>
         );
       });
@@ -208,9 +232,9 @@ import {
     );
   
     const getMenuButtons = () => {
-      return headersData.map(({ label, href }) => {
+      return headersData.map(({ label, href,onclick }) => {
         return (
-          <Button href={href}
+          <Button href={href} onClick={onclick}
             {...{
               key: label,
               color: "inherit",
@@ -232,6 +256,8 @@ import {
         <AppBar className={header}>
             <Container maxWidth="lg" className={slefcontac}>
               {mobileView ? displayMobile() : displayDesktop()}
+              {open ? <Modal open={open} handleClose={handleClose}/>:null}
+              
             </Container>
         </AppBar>
     

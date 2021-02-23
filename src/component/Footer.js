@@ -14,6 +14,7 @@ import footerlogo from '../assets/img/footerlogo.png';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import routes from "../constants/routes.json"
 
 
 const useStyles = makeStyles({
@@ -83,6 +84,12 @@ export default function Footer(){
                                   Contact Us
                                 </Typography>
                                 <Link href="mailto:hello@minty.art">hello@minty.art</Link>
+                                <br/>
+                                <Link href="">Token Agreement</Link>
+                                <br/>
+                                <Link href={routes.PRIVACY_POLICY}>Privacy Policy</Link>
+                                <br/>
+                                <Link href="">T&C</Link>
                             </Grid>
                         </Hidden>
                             <Grid item md={4} xs={6}>
