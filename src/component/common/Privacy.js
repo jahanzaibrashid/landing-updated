@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Container, makeStyles, Typography } from "@material-ui/core";
-
+import pdf from '././../../assets/pdf/PrivacyPolicy.pdf';
 import { PrivacyPolicyText } from "../../constants/privacyData";
 // import { PrivacyPolicyText } from "./htmlPagesForMinty/pp.html";
 
@@ -62,7 +62,7 @@ const userStyles = makeStyles({
 });
 
 function createMarkup() {
-    return {__html: '<iframe src="./htmlPagesForMinty/pp.html" width="540" height="450"></iframe>'};
+    return {__html: '<iframe src="assets/pdf/PrivacyPolicy.pdf" width="540" height="450"></iframe>'};
   }
 
 
@@ -71,8 +71,9 @@ export default function Privacy(props) {
   console.log(createMarkup())
   return (
     <>
-      <Container maxWidth="lg">
-          <div dangerouslySetInnerHTML={createMarkup()}></div>
+    <iframe src={pdf} width='540' height='450'></iframe>
+      {/* <Container maxWidth="lg">
+          <div dangerouslySetInnerHTML={createMarkup()}></div> */}
         {/* <div className={classes.middlecontentm}>
           <Typography variant="h6">Jahanzaib</Typography>
           <pre>Hello ,dsfasdfads World .</pre>
@@ -84,7 +85,7 @@ export default function Privacy(props) {
                         {PrivacyPolicyText.data}
                         </Typography>
         </div> */}
-      </Container>
+      {/* </Container> */}
     </>
   );
 }
