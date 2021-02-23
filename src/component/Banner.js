@@ -184,12 +184,10 @@ export default function Banner() {
                   classes={{label:classes.checkboxLabel}}
                 />
               </Grid>
-              <Grid item>
-                
-              </Grid>
+              
             </Grid>
 
-            <Grid
+            {/* <Grid
               container
               direction="row"
               justify="center"
@@ -203,7 +201,7 @@ export default function Banner() {
               <Grid item xs={12} md={3}>
                 <PrimaryButton text="STAKE MINTY" />
               </Grid>
-            </Grid>
+            </Grid> */}
           </div>
         </Container>
       </div>
