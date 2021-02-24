@@ -48,7 +48,7 @@ export default function Privacy(props) {
   const classes = userStyles();
   return (
     <>
-    <iframe src="https://docs.google.com/document/d/1ZnMV7MX74LWVWtYh_5lDa-iErHL2CTj19D4gudWs9WQ/edit" width='99%' height='714'></iframe>
+    {/* <iframe src="https://docs.google.com/document/d/1ZnMV7MX74LWVWtYh_5lDa-iErHL2CTj19D4gudWs9WQ/edit" width='99%' height='714'></iframe> */}
     </>
   );
 }
