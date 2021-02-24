@@ -210,7 +210,7 @@ import {
     };
   
     const getDrawerChoices = () => {
-      return headersData.map(({ label, href }) => {
+      return headersData.map(({ label, href,onclick }) => {
         return (
           <Link href={href}
             {...{
@@ -221,7 +221,7 @@ import {
               key: label,
             }}
           >
-            <MenuItem style={{textTransform:"uppercase"}}>{label}</MenuItem>
+            <MenuItem style={{textTransform:"uppercase"}} onClick={onclick}>{label}</MenuItem>
           </Link>
         );
       });

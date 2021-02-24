@@ -85,11 +85,11 @@ export default function Footer(){
                                 </Typography>
                                 <Link href="mailto:hello@minty.art">hello@minty.art</Link>
                                 <br/>
-                                <Link href="">Token Agreement</Link>
+                                <Link href={routes.TOKEN_AGREEMENT}>Token Agreement</Link>
                                 <br/>
                                 <Link href={routes.PRIVACY_POLICY}>Privacy Policy</Link>
                                 <br/>
-                                <Link href="">T&C</Link>
+                                <Link href={routes.TNC}>T&C</Link>
                             </Grid>
                         </Hidden>
                             <Grid item md={4} xs={6}>

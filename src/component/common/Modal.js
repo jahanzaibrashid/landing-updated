@@ -1,65 +1,53 @@
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
-import { Button, Dialog, Grid, Link } from "@material-ui/core/";
+import {
+  Button,
+  Dialog,
+  Grid,
+  Link,
+  Checkbox,
+  FormControlLabel,
+} from "@material-ui/core/";
 
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
- // import Theme from '../../theme/ThemeBranding';
- import PrimaryButton from '../common/buttons/PrimaryButton';
-
+// import Theme from '../../theme/ThemeBranding';
+import PrimaryButton from "../common/buttons/PrimaryButton";
+import CommingSoon from "../common/buttons/CommingSoon";
 
 const useStyles = makeStyles((theme) => ({
   ModalContainer: {
-    padding: theme.spacing(6),
+    padding: theme.spacing(4),
     // backgroundColor: theme.backgroundColors.D1A1A1B_LFFFFFF,
     display: "flex",
     justifyContent: "center",
+
     // color:theme.textColors.DFFFFFF_L1A1A1B,
   },
   ModalContainerItem: {
     textAlign: "center",
-    "& h4": {
-      // fontFamily: Theme.Walkway,
-      [theme.breakpoints.down("sm")]: {
-        fontSize: "24px",
-      },
-    },
-    "& p": {
-      // fontFamily: Theme.Montserrat,
-      [theme.breakpoints.down("sm")]: {
-        fontSize: "12px",
-      },
-    },
   },
-  ModalContainerItemTextTitle: {
-    padding: "5% 0px",
-  },
+
   ModalContainerItemTextParagraph: {
-    padding: "2% 0px",
+    padding: "5px",
     display: "flex",
     justifyContent: "center",
+    fontFamily: "Montserrat",
+    fontSize:"16px"
   },
-  ContainerBalance: {
-    display: "flex",
-    flexFlow: "row",
-
-    [theme.breakpoints.down("sm")]: {
-      flexFlow: "column",
-    },
+  checkboxLabel: {
+    fontFamily: "Montserrat !important",
+    fontSize: "16px",
+    fontWeight: 300,
   },
-  ItemBalance: {
-    padding: theme.spacing(2),
-    textAlign: "start",
-    "& Button": {
-      // fontFamily: Theme.Montserrat,
-      [theme.breakpoints.down("sm")]: {
-        fontSize: "10px",
-        width: "133%",
-      },
-    },
-  },
+  //   checkbox: {
+  //     color: `#DFDFE6`,
+  //   },
+  //   checked: {
+  //     color: `#DFDFE6`,
+  //   },
 }));
 
 const styles = (theme) => ({
@@ -95,6 +83,11 @@ const DialogTitle = withStyles(styles)((props) => {
 
 const Modal = ({ open, handleClose }) => {
   const classes = useStyles();
+  const [isChecked, setIsChecked] = useState(false);
+  const handleChange = (e) => {
+    setIsChecked(e.target.checked);
+    console.log(isChecked);
+  };
 
   return (
     <>
@@ -112,15 +105,8 @@ const Modal = ({ open, handleClose }) => {
                   onClose={handleClose}
                 />
               </Grid>
+
               <Grid item className={classes.ModalContainerItem}>
-                <Typography
-                  className={classes.ModalContainerItemTextTitle}
-                  variant="h4"
-                  gutterBottom
-                  align="center"
-                >
-                  What text to put here ?
-                </Typography>
                 <Typography
                   className={classes.ModalContainerItemTextParagraph}
                   variant="p"
@@ -133,45 +119,40 @@ const Modal = ({ open, handleClose }) => {
                   acknowledge and agree that I shall immediately exit from and
                   not access and/or use the platform.{" "}
                 </Typography>
-                {/* <Typography className={classes.ModalContainerItemTextParagraph} style={{ justifyContent: "start" }} variant="p" gutterBottom>
-                                    <Link href="/patrons" color="inherit">
-                                        <span style={{ color: "#2A7DE1" }}>
-                                            <u>T&C</u>
-                                        </span>
-                                    </Link>
-                                </Typography> */}
 
-                {/* <Grid container className={classes.ContainerBalance}>
-                                    <Grid item className={classes.ItemBalance}>
-                                        <Typography variant="p" gutterBottom align="start">
-                                            Your balance:
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item className={classes.ItemBalance}>
-                                        <Grid container direction="row">
-                                            <Grid item className={classes.ItemBalance}>
-                                                <Typography variant="p" gutterBottom align="start">
-                                                    100 000 MINTY
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item className={classes.ItemBalance}>
-                                                <Button style={{ backgroundColor:"#28A2F1", color:"white"}} color="#28A2F1" size="medium" variant="contained" onClick={handleClickOpen}>
-                                                    Deposit
-                                                </Button>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid> */}
-              </Grid>
-
-             
-                <Grid item xs={12} md={3}>
-                  <PrimaryButton text="BUY MINTY" />
+                <Grid item>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        //  checked={isChecked}
+                        classes={{
+                          root: classes.checkbox,
+                          checked: classes.checked,
+                        }}
+                        onChange={handleChange}
+                        value={isChecked}
+                        color="primary"
+                        inputProps={{ "aria-label": "secondary checkbox" }}
+                      />
+                    }
+                    label="Confirm"
+                    classes={{ label: classes.checkboxLabel }}
+                  />
                 </Grid>
-                <Grid item xs={12} md={3}>
-                  <PrimaryButton text="STAKE MINTY" />
+                
+                <Grid item>
+                  <PrimaryButton
+                    text="BUY MINTY"
+                    disabled={isChecked ? false : true}
+                    href="https://app.uniswap.org/#/swap?inputCurrency=0xb6c6920327b33f8eec26786c7462c5f4098d47e3&outputCurrency=ETH"
+                  />
+                </Grid>
+
+                <Grid item>
+                  <CommingSoon text="STAKE MINTY" />
                 </Grid>
               </Grid>
+            </Grid>
           </Grid>
         </Dialog>
       </Grid>

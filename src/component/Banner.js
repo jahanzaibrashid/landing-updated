@@ -101,27 +101,14 @@ const useStyles = makeStyles({
       marginBottom: "5px",
     },
   },
-  checkbox:{
-    color: `#DFDFE6`,
-  },
-  checked:{
-    color: `#DFDFE6`,
-  },
-  checkboxLabel:{
-    color: `#ffffff`,
-      fontFamily: "Montserrat, sans-serif",
-      fontSize: '16px',
-      fontWeight: 300,
-  }
+  
 });
 
 export default function Banner() {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
 
-  const handleChange = (e) => {
-    console.log(e.target.checked);
-  };
+ 
   return (
     <Fragment>
       <div className={classes.bannermain}>
@@ -151,41 +138,7 @@ export default function Banner() {
                 <img src={Mouseimg} alt="mouse" />
               </Link>
             </Hidden>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              spacing={1}
-              className={classes.mintyActionButtonsContainer}
-            >
-              <Grid item md={12}>
-                <Typography variant="h6" align="center" justify="center">
-                  I hereby confirm I read and accept the privacy policies and
-                  token agreement and T&Cs
-                </Typography>
-              </Grid>
-
-              <Grid item md={12} align="center" justify="center">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      color="default"
-                      classes={{
-                        root:classes.checkbox,
-                        checked:classes.checked
-                      }}
-                      onChange={handleChange}
-                      color="primary"
-                      inputProps={{ "aria-label": "secondary checkbox" }}
-                    />
-                  }
-                  label="Read"
-                  classes={{label:classes.checkboxLabel}}
-                />
-              </Grid>
-              
-            </Grid>
+           
 
             {/* <Grid
               container

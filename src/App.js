@@ -19,8 +19,8 @@ const App = () => {
       <RouterSwitch>
         <Route exact path={routes.HOME} component={Home} />
         <Route exact path={routes.PRIVACY_POLICY} component={Privacy} />
-        {/* <Route exact path={routes.TNC} component={Home} />
-        <Route exact path={routes.TOKEN_AGREEMENT} component={Home} /> */}
+        <Route exact path={routes.TNC} component={TnC} />
+        <Route exact path={routes.TOKEN_AGREEMENT} component={TokenAgreement} />
       </RouterSwitch>
 
       {/* <Footer /> */}
