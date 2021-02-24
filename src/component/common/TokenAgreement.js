@@ -1,8 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Container, makeStyles, Typography } from "@material-ui/core";
-import pdf from '././../../assets/pdf/PrivacyPolicy.pdf';
-import { PrivacyPolicyText } from "../../constants/privacyData";
-// import { PrivacyPolicyText } from "./htmlPagesForMinty/pp.html";
 
 const userStyles = makeStyles({
   middlecontentm: {
