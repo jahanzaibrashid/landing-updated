@@ -2688,14 +2688,5 @@ export default function Privacy(props) {
         </div>
       </div>
     </Container>
-    // <Typography className="contentText contextTextList">
-    //       (a) text
-    //       </Typography>
-    //       <Typography className="contentText contextTextList">
-    //       (b) text
-    //       </Typography>
-    //       <Typography className="contentText contextTextList">
-    //       (c) text
-    //       </Typography>
   );
 }
