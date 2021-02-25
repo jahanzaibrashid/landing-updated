@@ -85,7 +85,7 @@ export default function Footer(){
                                 </Typography>
                                 <Link href="mailto:hello@minty.art">hello@minty.art</Link>
                                 <br/>
-                                <Link href={routes.TOKEN_AGREEMENT}>Token Agreement</Link>
+                                <Link href={routes.TOKEN_AGREEMENT}>Token Usage Agreement</Link>
                                 <br/>
                                 <Link href={routes.PRIVACY_POLICY}>Privacy Policy</Link>
                                 <br/>

@@ -1,9 +1,25 @@
 import React from "react";
-import { Box, Container, makeStyles, Typography } from "@material-ui/core";
+import {
+  Box,
+  Container,
+  makeStyles,
+  Typography,
+  Link,
+} from "@material-ui/core";
+import routes from "../../constants/routes.json";
 
-const userStyles = makeStyles({
+const userStyles = makeStyles((theme)=>({
   container: {
     paddingTop: "50px",
+  },
+  pageTitle:{
+    fontFamily: "Montserrat, sans-serif",
+    fontWeight: 500,
+    fontSize:"50px",
+    color: "#fff",
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '30px',
+    },
   },
 
   desc: {
@@ -28,13 +44,17 @@ const userStyles = makeStyles({
   subHeading: {
     fontWeight: 700,
   },
-});
+}));
 
 export default function Privacy(props) {
   const classes = userStyles();
   return (
     <>
       <Container maxWidth="lg" className={classes.container}>
+      <Box style={{textAlign:"center"}}>
+          <Typography className={classes.pageTitle}>Privacy Policy</Typography>
+
+        </Box>
         <Box>
           <Typography className={classes.desc}>
             This Privacy Policy (“Policy”) describes how Minty.Art (“Minty” or
@@ -43,7 +63,12 @@ export default function Privacy(props) {
             and services (collectively, “Services”). Your privacy is important
             to us, and we ask that you read this Policy carefully to be informed
             about our practices. If you see an undefined term in this Privacy
-            Policy, it has the same definition as in our T&Cs
+            Policy, it has the same definition as in our
+            <Link href={routes.TNC} color="inherit">
+              <span style={{ color: "#2A7DE1" }}>
+                <u> T&Cs</u>
+              </span>
+            </Link>
           </Typography>
           <Typography className={classes.desc}>
             This Policy is part of our T&Cs. Any capitalized terms that are used
@@ -361,8 +386,22 @@ export default function Privacy(props) {
                 limited to) MetaMask, Fortmatic and WalletConnect; your
                 interactions with any of the Web3 Wallets are governed by the
                 applicable privacy policies. In the case of MetaMask, its
-                privacy policy is available at Metamask Privacy Policy, and
-                Fortmatic (Fortmatic Privacy Policy).
+                privacy policy is available at
+                <Link href="https://metamask.io/privacy.html" color="inherit">
+                  <span style={{ color: "#2A7DE1" }}>
+                    <u> Metamask Privacy Policy</u>
+                  </span>
+                </Link>
+                , and Fortmatic (
+                <Link
+                  href="https://fortmatic.com/legal/user-privacy-policy"
+                  color="inherit"
+                >
+                  <span style={{ color: "#2A7DE1" }}>
+                    <u> Fortmatic Privacy Policy</u>
+                  </span>
+                </Link>
+                ).
               </li>
               <li>
                 Business Transfers: If we are involved in a merger, acquisition,

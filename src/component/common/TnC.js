@@ -1,17 +1,24 @@
 import React from "react";
-import { Container, makeStyles, Typography, Box } from "@material-ui/core";
+import {
+  Container,
+  makeStyles,
+  Typography,
+  Box,
+  Link,
+} from "@material-ui/core";
+import routes from "../../constants/routes.json";
 
-const userStyles = makeStyles((theme)=>({
+const userStyles = makeStyles((theme) => ({
   container: {
     paddingTop: "50px",
   },
-  pageTitle:{
+  pageTitle: {
     fontFamily: "Montserrat, sans-serif",
     fontWeight: 500,
-    fontSize:"50px",
+    fontSize: "50px",
     color: "#fff",
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '30px',
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "30px",
     },
   },
 
@@ -73,9 +80,10 @@ export default function TnC(props) {
   return (
     <>
       <Container maxWidth="lg" className={classes.container}>
-        <Box style={{textAlign:"center"}}>
-          <Typography className={classes.pageTitle}>Terms and Conditions</Typography>
-
+        <Box style={{ textAlign: "center" }}>
+          <Typography className={classes.pageTitle}>
+            Terms and Conditions
+          </Typography>
         </Box>
         <Box>
           <Typography className={classes.desc}>
@@ -289,31 +297,54 @@ export default function TnC(props) {
               not a party to any agreement in between any Users. The Site allows
               you to sell and purchase Digital Assets, including minting Tokens.
               You may only participate in the Auction by linking your digital
-              wallets on MetaMask (https://metamask.io/), Fortmatic
-              (https://fortmatic.com) and WalletConnect
-              (https://walletconnect.org) (the “Web3 Wallet” and, collectively
-              the “Web3 Wallets”). These are electronic wallets, which allows
-              you to purchase, store, and engage in transactions using Ethereum
-              (“ETH”) cryptocurrency. Before putting up your Digital Asset for
-              auction or putting in an offer to purchase a Digital Asset from
-              another User, we will ask you to download the MetaMask, Fortmatic
-              or WalletConnect extension, and connect and unlock your digital
-              wallets with any of the supported Web3 Wallets. Once you submit an
-              order to sell or purchase a Digital Asset, your order is passed on
-              to the Web3 Wallet and the Web3 Wallet completes the transaction
-              on your behalf. ALL TRANSACTIONS INITIATED THROUGH OUR SITE ARE
+              wallets on MetaMask (
+              <span style={{ color: "#2A7DE1" }}>
+                <u> https://metamask.io/</u>
+              </span>
+              ), Fortmatic ({" "}
+              <span style={{ color: "#2A7DE1" }}>
+                <u> https://fortmatic.com</u>
+              </span>
+              ) and WalletConnect (
+              <span style={{ color: "#2A7DE1" }}>
+                <u> https://walletconnect.org</u>
+              </span>
+              ) (the “Web3 Wallet” and, collectively the “Web3 Wallets”). These
+              are electronic wallets, which allows you to purchase, store, and
+              engage in transactions using Ethereum (“ETH”) cryptocurrency.
+              Before putting up your Digital Asset for auction or putting in an
+              offer to purchase a Digital Asset from another User, we will ask
+              you to download the MetaMask, Fortmatic or WalletConnect
+              extension, and connect and unlock your digital wallets with any of
+              the supported Web3 Wallets. Once you submit an order to sell or
+              purchase a Digital Asset, your order is passed on to the Web3
+              Wallet and the Web3 Wallet completes the transaction on your
+              behalf. ALL TRANSACTIONS INITIATED THROUGH OUR SITE ARE
               FACILITATED AND RUN BY ONE OF THE WEB3 WALLETS AND BY USING OUR
               SERVICES YOU AGREE THAT YOU ARE GOVERNED BY THE TERMS OF SERVICE
               AND PRIVACY POLICY OF THE RESPECTIVE WEB3 WALLET, AS FOLLOWS:
               <ul>
                 <li>
-                  METAMASK: TERMS OF USE (https://metamask.io/terms.html) AND
-                  PRIVACY POLICY (https://metamask.io/privacy.html) OF METAMASK.
+                  METAMASK: TERMS OF USE (
+                  <span style={{ color: "#2A7DE1" }}>
+                    <u>https://metamask.io/terms.html</u>
+                  </span>
+                  ) AND PRIVACY POLICY (
+                  <span style={{ color: "#2A7DE1" }}>
+                    <u>https://metamask.io/privacy.html</u>
+                  </span>
+                  ) OF METAMASK.
                 </li>
                 <li>
-                  FORTMATIC: TERMS OF USE
-                  (https://fortmatic.com/legal/user-terms) AND PRIVACY POLICY
-                  (https://fortmatic.com/legal/user-privacy-policy)
+                  FORTMATIC: TERMS OF USE ({" "}
+                  <span style={{ color: "#2A7DE1" }}>
+                    <u>https://fortmatic.com/legal/user-terms</u>
+                  </span>
+                  ) AND PRIVACY POLICY (
+                  <span style={{ color: "#2A7DE1" }}>
+                    <u>https://fortmatic.com/legal/user-privacy-policy</u>
+                  </span>
+                  )
                 </li>
               </ul>
               Minty reserves the right to change or modify this Agreement at any
@@ -578,7 +609,12 @@ export default function TnC(props) {
                     jurisdiction to so-called “moral rights” or right of “droit
                     moral” with respect to any of your User Materials. You may
                     request to remove your User Materials in accordance with our
-                    Privacy Policy, which is hereby incorporated by reference.
+                    <Link href={routes.PRIVACY_POLICY} color="inherit">
+                      <span style={{ color: "#2A7DE1" }}>
+                        <u> Privacy Policy</u>
+                      </span>
+                    </Link>
+                    , which is hereby incorporated by reference.
                   </li>
                   <li>
                     Hyperlinks: You are granted a limited, non-exclusive,
@@ -1389,20 +1425,50 @@ export default function TnC(props) {
               </li>
             </ol>
             <li className={classes.fontWeight700}>PRIVACY POLICY</li>
-          
+
             <Typography className={classes.listDesc}>
-            Both Minty and Sellers process members’ personal information (for example Buyerƒ’s name, email address and delivery address) are considered separate and independent data controllers of Buyers’ personal information. That means that each party is responsible for the personal information it processes in providing the Services. For example, if a Seller accidentally discloses a Buyer’s name and email address when fulfilling another Buyer’s order, the Seller and not Minty, will be responsible for that unauthorized disclosure. 
+              Both Minty and Sellers process members’ personal information (for
+              example Buyerƒ’s name, email address and delivery address) are
+              considered separate and independent data controllers of Buyers’
+              personal information. That means that each party is responsible
+              for the personal information it processes in providing the
+              Services. For example, if a Seller accidentally discloses a
+              Buyer’s name and email address when fulfilling another Buyer’s
+              order, the Seller and not Minty, will be responsible for that
+              unauthorized disclosure.
             </Typography>
             <Typography className={classes.listDesc}>
-            If, however, Minty and Sellers are found to be joint data controllers of Buyers’ personal information and, if Minty is sued, fined, or otherwise incurs expenses because of something that you did as a joint data controller of a Buyer’s personal information, you agree to indemnify Minty for the expenses it occurs in connection with your processing of Buyers’ personal information. 
+              If, however, Minty and Sellers are found to be joint data
+              controllers of Buyers’ personal information and, if Minty is sued,
+              fined, or otherwise incurs expenses because of something that you
+              did as a joint data controller of a Buyer’s personal information,
+              you agree to indemnify Minty for the expenses it occurs in
+              connection with your processing of Buyers’ personal information.
             </Typography>
             <Typography className={classes.listDesc}>
-              Please refer to our <u>Privacy Policy</u> for information about
-              how we collect, use and share information about you.
+              Please refer to our
+              <Link href={routes.PRIVACY_POLICY} color="inherit">
+                <span style={{ color: "#2A7DE1" }}>
+                  <u> Privacy Policy</u>
+                </span>
+              </Link>{" "}
+              for information about how we collect, use and share information
+              about you.
             </Typography>
             <li className={classes.fontWeight700}>MISCELLANEOUS</li>
-            <Typography className={classes.listDesc}>This Agreement constitutes the entire agreement between you and Minty relating to your access to and use of the Sites and Content, and your participation in the Auction. This Agreement, and any rights and licenses granted hereunder, may not be transferred or assigned by you without the prior written consent of Minty prior, concurrent or subsequent circumstance, and Minty’s failure to assert any right or provision under this Agreement shall not constitute a waiver of such right or provision. Except as otherwise provided herein, this Agreement is intended solely for the benefit of the parties and is not intended to confer third party beneficiary rights upon any other person or entity.
-</Typography>
+            <Typography className={classes.listDesc}>
+              This Agreement constitutes the entire agreement between you and
+              Minty relating to your access to and use of the Sites and Content,
+              and your participation in the Auction. This Agreement, and any
+              rights and licenses granted hereunder, may not be transferred or
+              assigned by you without the prior written consent of Minty prior,
+              concurrent or subsequent circumstance, and Minty’s failure to
+              assert any right or provision under this Agreement shall not
+              constitute a waiver of such right or provision. Except as
+              otherwise provided herein, this Agreement is intended solely for
+              the benefit of the parties and is not intended to confer third
+              party beneficiary rights upon any other person or entity.
+            </Typography>
           </ol>
         </Box>
       </Container>
