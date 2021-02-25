@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import {useHistory} from "react-router-dom"
 import {
   makeStyles,
   Container,
@@ -62,11 +63,15 @@ const useStyles = makeStyles({
   footsmallc: {
     marginBottom: "10px",
   },
+  pointer:{
+      cursor:"pointer"
+  }
 });
 
 export default function Footer() {
   const classes = useStyles();
   const theme = useTheme();
+  const history = useHistory();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"), {
     defaultMatches: true,
   });
@@ -86,10 +91,16 @@ export default function Footer() {
                 <Link href="mailto:hello@minty.art">hello@minty.art</Link>
                 <br />
                 <Link href={routes.TOKEN_AGREEMENT}>Token Usage Agreement</Link>
+
+                {/* <Link className={classes.pointer} onClick={()=>history.push(routes.TOKEN_AGREEMENT)}>Token Usage Agreement</Link> */}
                 <br />
                 <Link href={routes.PRIVACY_POLICY}>Privacy Policy</Link>
+
+                {/* <Link className={classes.pointer} onClick={()=>history.push(routes.PRIVACY_POLICY)}>Privacy Policy</Link> */}
                 <br />
                 <Link href={routes.TNC}>Terms & Conditions</Link>
+
+                {/* <Link className={classes.pointer} onClick={()=>history.push(routes.TNC)}>Terms & Conditions</Link> */}
               </Grid>
             </Hidden>
             <Grid item md={4} xs={6}>
@@ -113,6 +124,10 @@ export default function Footer() {
                 <Link href={routes.TOKEN_AGREEMENT} className={classes.footsmallc}>Token Usage Agreement</Link>
                 <Link href={routes.PRIVACY_POLICY} className={classes.footsmallc}>Privacy Policy</Link>
                 <Link href={routes.TNC} className={classes.footsmallc}>Terms & Conditions</Link>
+{/*                 
+                <Link onClick={()=>history.push(routes.TOKEN_AGREEMENT)} className={classes.footsmallc}>Token Usage Agreement</Link>
+                <Link onClick={()=>history.push(routes.PRIVACY_POLICY)} className={classes.footsmallc}>Privacy Policy</Link>
+                <Link onClick={()=>history.push(routes.TNC)} className={classes.footsmallc}>Terms & Conditions</Link> */}
               </Hidden>
               <Typography variant="h5" align="right">
                 Community

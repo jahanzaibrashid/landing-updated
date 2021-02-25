@@ -1,11 +1,13 @@
-import { withStyles, makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import {
   Dialog,
   Grid,
+  Link,
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core/";
+import { useHistory } from "react-router-dom";
 
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import IconButton from "@material-ui/core/IconButton";
@@ -14,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 // import Theme from '../../theme/ThemeBranding';
 import PrimaryButton from "../common/buttons/PrimaryButton";
 import CommingSoon from "../common/buttons/CommingSoon";
+import routes from "../../constants/routes.json";
 
 const useStyles = makeStyles((theme) => ({
   ModalContainer: {
@@ -30,10 +33,10 @@ const useStyles = makeStyles((theme) => ({
 
   ModalContainerItemTextParagraph: {
     padding: "5px",
-    display: "flex",
+    // display: "flex",
     justifyContent: "center",
     fontFamily: "Montserrat",
-    fontSize:"16px"
+    fontSize: "16px",
   },
   checkboxLabel: {
     fontFamily: "Montserrat !important",
@@ -81,15 +84,18 @@ const DialogTitle = withStyles(styles)((props) => {
 
 const Modal = ({ open, handleClose }) => {
   const classes = useStyles();
+  const history = useHistory();
   const [isChecked, setIsChecked] = useState(false);
   const handleChange = (e) => {
     setIsChecked(e.target.checked);
     console.log(isChecked);
   };
-  const buyHandler= ()=>{
-    window.open("https://app.uniswap.org/#/swap?inputCurrency=0xb6c6920327b33f8eec26786c7462c5f4098d47e3&outputCurrency=ETH")   
+  const buyHandler = () => {
+    window.open(
+      "https://app.uniswap.org/#/swap?inputCurrency=0xb6c6920327b33f8eec26786c7462c5f4098d47e3&outputCurrency=ETH"
+    );
     handleClose();
-  }
+  };
 
   return (
     <>
@@ -110,16 +116,45 @@ const Modal = ({ open, handleClose }) => {
 
               <Grid item className={classes.ModalContainerItem}>
                 <Typography
-                  className={classes.ModalContainerItemTextParagraph}
                   variant="p"
-                  gutterBottom
+                  className={classes.ModalContainerItemTextParagraph}
                 >
+                 
                   I hereby confirm that I unconditionally accept and agree to
-                  comply with the Token Usage Agreement, the Terms of Use and
-                  the Privacy Policy (the “Legal Documents”). I understand that
-                  if I do not accept and agree to these Legal Documents, I
-                  acknowledge and agree that I shall immediately exit from and
-                  not access and/or use the platform.{" "}
+                  comply with the {" "}
+                  <Link
+                    onClick={() => history.push(routes.TOKEN_AGREEMENT)}
+                    color="inherit"
+                  >
+                    <span style={{ color: "#2A7DE1" ,cursor:"pointer" }}>
+                      <u>Token Usage Agreement</u>
+                    </span>
+                  </Link>
+                  , the {" "}
+                  <Link
+                    onClick={() => history.push(routes.PRIVACY_POLICY)}
+                    color="inherit"
+                  >
+                    <span style={{ color: "#2A7DE1",cursor:"pointer" }}>
+                      <u>Terms of Use</u>
+                    </span>
+                  </Link>
+                  {" "}
+                  and the
+                  {" "}
+                  <Link
+                    onClick={() => history.push(routes.PRIVACY_POLICY)}
+                    color="inherit"
+                  >
+                    <span style={{ color: "#2A7DE1" ,cursor:"pointer"}}>
+                      <u>Privacy Policy</u>
+                    </span>
+                  </Link>
+                  {" "}
+                  (the “Legal Documents”). I understand that if I do not accept
+                  and agree to these Legal Documents, I acknowledge and agree
+                  that I shall immediately exit from and not access and/or use
+                  the platform.{" "}
                 </Typography>
 
                 <Grid item>
@@ -141,17 +176,17 @@ const Modal = ({ open, handleClose }) => {
                     classes={{ label: classes.checkboxLabel }}
                   />
                 </Grid>
-                
+
                 <Grid item>
                   <PrimaryButton
                     text="BUY MINTY"
                     disabled={isChecked ? false : true}
-                    onClick={()=>buyHandler(handleClose)}
+                    onClick={() => buyHandler(handleClose)}
                   />
                 </Grid>
 
                 <Grid item>
-                  <CommingSoon text="STAKE MINTY" />
+                  <CommingSoon text="STAKE MINTY" onClick={()=>alert('jhaanzib')} />
                 </Grid>
               </Grid>
             </Grid>
