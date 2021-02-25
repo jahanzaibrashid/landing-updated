@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Container, makeStyles, Typography } from "@material-ui/core";
 
 const userStyles = makeStyles((theme)=>({
   root: {
-    padding: "50px 0",
+    padding: "50px 15px",
     "& .title": {
       color: "#fff",
       fontFamily: "Montserrat, sans-serif",

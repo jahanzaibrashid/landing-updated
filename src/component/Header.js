@@ -114,7 +114,7 @@ import {
     const headersData = [
       {
         label: "HOME",
-        href: "#",
+        href: "/",
         
       },
       {
@@ -136,9 +136,9 @@ import {
     const handleClose = () => {
         setOpen(false);
     };
-    const handleClickOpen = () => {
-      setOpen(true);
-  };
+  //   const handleClickOpen = () => {
+  //     setOpen(true);
+  // };
 
   
     

@@ -1,10 +1,8 @@
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import {
-  Button,
   Dialog,
   Grid,
-  Link,
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core/";
@@ -88,6 +86,10 @@ const Modal = ({ open, handleClose }) => {
     setIsChecked(e.target.checked);
     console.log(isChecked);
   };
+  const buyHandler= ()=>{
+    window.open("https://app.uniswap.org/#/swap?inputCurrency=0xb6c6920327b33f8eec26786c7462c5f4098d47e3&outputCurrency=ETH")   
+    handleClose();
+  }
 
   return (
     <>
@@ -144,7 +146,7 @@ const Modal = ({ open, handleClose }) => {
                   <PrimaryButton
                     text="BUY MINTY"
                     disabled={isChecked ? false : true}
-                    href="https://app.uniswap.org/#/swap?inputCurrency=0xb6c6920327b33f8eec26786c7462c5f4098d47e3&outputCurrency=ETH"
+                    onClick={()=>buyHandler(handleClose)}
                   />
                 </Grid>
 

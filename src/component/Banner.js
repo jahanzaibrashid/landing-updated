@@ -1,19 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import {
   Typography,
   Container,
   Divider,
   Link,
   Hidden,
-  Grid,
-  Checkbox,
-  FormControlLabel,
+ 
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Bannerimage from "../assets/img/banner.jpg";
 import Envopleimage from "../assets/img/minty.png";
 import Mouseimg from "../assets/img/mouse.png";
-import PrimaryButton from "./common/buttons/PrimaryButton";
 
 const useStyles = makeStyles({
   bannermain: {
@@ -106,7 +103,6 @@ const useStyles = makeStyles({
 
 export default function Banner() {
   const classes = useStyles();
-  const [checked, setChecked] = useState(false);
 
  
   return (

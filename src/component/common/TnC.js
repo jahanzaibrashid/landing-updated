@@ -82,7 +82,7 @@ export default function TnC(props) {
       <Container maxWidth="lg" className={classes.container}>
         <Box style={{ textAlign: "center" }}>
           <Typography className={classes.pageTitle}>
-            Terms and Conditions
+            Terms & Conditions
           </Typography>
         </Box>
         <Box>

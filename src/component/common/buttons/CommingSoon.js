@@ -67,7 +67,7 @@ export default function SimplePopover({text}) {
           horizontal: 'center',
         }}
       >
-        <Typography className={classes.typography}>Comming Soon</Typography>
+        <Typography className={classes.typography}>Coming Soon</Typography>
       </Popover>
     </>
   );
