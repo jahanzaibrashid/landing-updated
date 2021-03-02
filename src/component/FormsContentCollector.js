@@ -248,9 +248,10 @@ export default function FormsContent() {
               Submit
           </Button>
           </div>
+          
           {visibility == "none" ?
             <Typography variant="body1" align="center">
-              Thank you
+              Thank you <br/> Please complete your sign up by clicking the link in the confirmation email
           </Typography> : null}
 
         </form>
