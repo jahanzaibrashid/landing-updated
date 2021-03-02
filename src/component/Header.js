@@ -123,18 +123,22 @@ function Header() {
       href: "/",
     },
     {
-      label: "REQUEST INVITATION",
+      label: "REGISTER",
       href: "/#form",
     },
     {
-      label: "Buy Minty",
+      label: "WHITE PAPER",
+      href: "/whitepaper",
+    },
+    {
+      label: "Minty Token",
       href: "/#",
       onclick: () => {
         setOpen(true);
       },
     },
     {
-      label: "Stake Minty",
+      label: "STAKING MINTY",
       href: "/#",
       onclick: () => {
         setOpen(true)
@@ -218,10 +222,10 @@ function Header() {
   };
 
   const getDrawerChoices = () => {
-    return headersData.map(({ label, onclick }) => {
+    return headersData.map(({ label, onclick,href }) => {
       return (
         <Link
-          // href={href}
+          href={href}
           {...{
             //   component: RouterLink,
             // to: href,
