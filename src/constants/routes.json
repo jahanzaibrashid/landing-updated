@@ -1,6 +1,7 @@
 {
-    "HOME":"/",
-    "PRIVACY_POLICY":"/policy",
-    "TOKEN_AGREEMENT":"/tokenagreement",
-    "TNC":"/tnc"
+  "HOME": "/",
+  "PRIVACY_POLICY": "/policy",
+  "TOKEN_AGREEMENT": "/tokenagreement",
+  "TNC": "/tnc",
+  "WHITEPAPER": "/whitepaper"
 }
