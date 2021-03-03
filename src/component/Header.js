@@ -14,6 +14,7 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import React, { useState, useEffect } from "react";
 import LogoItem from "../assets/img/logo.png";
+// import LogoItem from "../assets/img/newLogo.png";
 import Modal from "./common/Modal";
 
 const useStyles = makeStyles(() => ({
