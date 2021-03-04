@@ -130,6 +130,8 @@ function Header() {
     {
       label: "WHITE PAPER",
       href: "/whitepaper",
+      target:"_blank"
+      
     },
     {
       label: "Minty Token",
@@ -223,10 +225,11 @@ function Header() {
   };
 
   const getDrawerChoices = () => {
-    return headersData.map(({ label, onclick,href }) => {
+    return headersData.map(({ label, onclick,href ,target}) => {
       return (
         <Link
           href={href}
+          target={target?target:null}
           {...{
             //   component: RouterLink,
             // to: href,
@@ -251,11 +254,12 @@ function Header() {
   );
 
   const getMenuButtons = () => {
-    return headersData.map(({ label, href, onclick }) => {
+    return headersData.map(({ label, href, onclick,target }) => {
       return (
         <Button
           href={href}
           onClick={onclick}
+          target={target?target:null}
           {...{
             key: label,
             color: "inherit",

@@ -1,28 +1,32 @@
 import pdf from "../../assets/pdf/WhitePaper.pdf";
-import React, { useState } from 'react';
-import { useTheme } from '@material-ui/core/styles';
-import {Container,useMediaQuery} from "@material-ui/core"
-import { Document, Page,pdfjs} from 'react-pdf';
+import React, { useState } from "react";
+import { useTheme } from "@material-ui/core/styles";
+import { Container, useMediaQuery } from "@material-ui/core";
+import { Document, Page, pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
 
 function MyApp() {
   const theme = useTheme();
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const xs = useMediaQuery(theme.breakpoints.only('xs'), {defaultMatches: true});
-  const sm = useMediaQuery(theme.breakpoints.only('sm'), {defaultMatches: true});
-  const md = useMediaQuery(theme.breakpoints.only('md'), {defaultMatches: true});
-  console.log(xs,sm,md)
+  const xs = useMediaQuery(theme.breakpoints.only("xs"), {
+    defaultMatches: true,
+  });
+  const sm = useMediaQuery(theme.breakpoints.only("sm"), {
+    defaultMatches: true,
+  });
+  const md = useMediaQuery(theme.breakpoints.only("md"), {
+    defaultMatches: true,
+  });
+  console.log(xs, sm, md);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
     setPageNumber(1);
   }
 
-
   function changePage(offset) {
-    setPageNumber(prevPageNumber => prevPageNumber + offset);
+    setPageNumber((prevPageNumber) => prevPageNumber + offset);
   }
 
   function previousPage() {
@@ -34,34 +38,37 @@ function MyApp() {
   }
 
   return (
-    <Container maxWidth="lg">
-      <div style={{textAlign:"center"}}>
-      <Document
-        file={pdf}
-        onLoadSuccess={onDocumentLoadSuccess}
-      >
-        <Page pageNumber={pageNumber} width="1200"/>
-      </Document>
-      <div>
-        <p style={{color:"white"}}>
-          Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
-        </p>
-        <button style={{padding:'10px',borderRadius:"8px",marginRight:"2px"}} type="button" disabled={pageNumber <= 1} onClick={previousPage} >
-          Previous
-        </button>
-        <button style={{padding:'10px', borderRadius:"8px",marginLeft:"2px"}}
-          type="button"
-          disabled={pageNumber >= numPages}
-          onClick={nextPage}
-        >
-          Next
-        </button>
-      </div>
+    <div style={{width:"100%",height:"100%", overflow:"hidden",margin:"0px",}}>
 
+    <embed src={pdf} style={{position:"absolute",left:0,top:0,width:"100%",height:"100%"}} type="application/pdf"></embed>
     </div>
+    // <Container maxWidth="lg">
+    //   <div style={{textAlign:"center"}}>
+    //   <Document
+    //     file={pdf}
+    //     onLoadSuccess={onDocumentLoadSuccess}
+    //   >
+    //     <Page pageNumber={pageNumber} width="1200"/>
+    //   </Document>
+    //   <div>
+    //     <p style={{color:"white"}}>
+    //       Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
+    //     </p>
+    //     <button style={{padding:'10px',borderRadius:"8px",marginRight:"2px"}} type="button" disabled={pageNumber <= 1} onClick={previousPage} >
+    //       Previous
+    //     </button>
+    //     <button style={{padding:'10px', borderRadius:"8px",marginLeft:"2px"}}
+    //       type="button"
+    //       disabled={pageNumber >= numPages}
+    //       onClick={nextPage}
+    //     >
+    //       Next
+    //     </button>
+    //   </div>
 
-    </Container>
-    
+    // </div>
+
+    // </Container>
   );
 }
 export default MyApp;

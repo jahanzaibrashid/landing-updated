@@ -90,17 +90,17 @@ export default function Footer() {
                 <Typography variant="h5">Contact Us</Typography>
                 <Link href="mailto:hello@minty.art">hello@minty.art</Link>
                 <br />
-                <Link href={routes.TOKEN_AGREEMENT}>Token Usage Agreement</Link>
+                <Link href={routes.TOKEN_AGREEMENT} target="_blank">Token Usage Agreement</Link>
 
                 {/* <Link className={classes.pointer} onClick={()=>history.push(routes.TOKEN_AGREEMENT)}>Token Usage Agreement</Link> */}
                 <br />
-                <Link href={routes.PRIVACY_POLICY}>Privacy Policy</Link>
+                <Link href={routes.PRIVACY_POLICY} target="_blank">Privacy Policy</Link>
 
                 {/* <Link className={classes.pointer} onClick={()=>history.push(routes.PRIVACY_POLICY)}>Privacy Policy</Link> */}
                 <br />
-                <Link href={routes.TNC}>Terms & Conditions</Link>
+                <Link href={routes.TNC} target="_blank">Terms & Conditions</Link>
                 <br />
-                <Link href={routes.WHITEPAPER}>White Paper</Link>
+                <Link href={routes.WHITEPAPER} target="_blank">White Paper</Link>
 
                 {/* <Link className={classes.pointer} onClick={()=>history.push(routes.TNC)}>Terms & Conditions</Link> */}
               </Grid>
@@ -123,10 +123,10 @@ export default function Footer() {
                 >
                   hello@minty.art
                 </Link>
-                <Link href={routes.TOKEN_AGREEMENT} className={classes.footsmallc}>Token Usage Agreement</Link>
-                <Link href={routes.PRIVACY_POLICY} className={classes.footsmallc}>Privacy Policy</Link>
-                <Link href={routes.TNC} className={classes.footsmallc}>Terms & Conditions</Link>
-                <Link href={routes.WHITEPAPER} className={classes.footsmallc}>White Paper</Link>
+                <Link href={routes.TOKEN_AGREEMENT} className={classes.footsmallc} target="_blank">Token Usage Agreement</Link>
+                <Link href={routes.PRIVACY_POLICY} className={classes.footsmallc} target="_blank">Privacy Policy</Link>
+                <Link href={routes.TNC} className={classes.footsmallc} target="_blank">Terms & Conditions</Link>
+                <Link href={routes.WHITEPAPER} className={classes.footsmallc} target="_blank">White Paper</Link>
 {/*                 
                 <Link onClick={()=>history.push(routes.TOKEN_AGREEMENT)} className={classes.footsmallc}>Token Usage Agreement</Link>
                 <Link onClick={()=>history.push(routes.PRIVACY_POLICY)} className={classes.footsmallc}>Privacy Policy</Link>
